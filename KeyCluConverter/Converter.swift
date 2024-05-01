@@ -56,7 +56,7 @@ class Converter {
         print("KeyClu Converter v\(Bundle.main.buildVersion) (\(Bundle.main.buildNumber))")
         print("Available options:")
         print("1. --help")
-        print("2. --bundle-id <bundle-id-to-use>")
+        print("2. --bundle-id <app-bundle-id>")
         print("   --from-file <path-file-from>")
         print("   --to-file <path-file-to>")
     }

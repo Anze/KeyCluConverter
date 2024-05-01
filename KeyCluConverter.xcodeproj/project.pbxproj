@@ -41,6 +41,8 @@
 		C73079152BE2929200C6C6AD /* ShortcutGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutGroup.swift; sourceTree = "<group>"; };
 		C73079172BE292A000C6C6AD /* ShortcutItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutItem.swift; sourceTree = "<group>"; };
 		C73079192BE2BFEE00C6C6AD /* TypeAliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
+		C730791B2BE2C8AC00C6C6AD /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		C730791C2BE2C8AC00C6C6AD /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,8 @@
 			isa = PBXGroup;
 			children = (
 				C73078FD2BE2852100C6C6AD /* KeyCluConverter */,
+				C730791B2BE2C8AC00C6C6AD /* LICENSE */,
+				C730791C2BE2C8AC00C6C6AD /* readme.md */,
 				C73078FC2BE2852100C6C6AD /* Products */,
 			);
 			sourceTree = "<group>";
