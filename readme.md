@@ -25,6 +25,11 @@ Example command:
 ```
 KeyCluConverter --bundle-id com.app-bundle.id --from-file /path/to/file.kcustom --to-file /path/to/file.keyclu
 ```
+Where:
+- `--bundle-id` provide app's bundleId, eg com.app-bundle.id, check [FAQ](#FAQ) section for more info.
+- `--from-file` **KeyCue** file path to convert
+- `--to-file` **KeyClu** file path to save
+
 ## FAQ
 There are few ways how to get `bundleId`
 - You can obtain the `bundleId` by exporting a file for that app with at least one dummy shortcut set up within the KeyClu. It's important to note that the app should already be installed and used KeyClu altelast once within that app.
