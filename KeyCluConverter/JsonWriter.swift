@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Cocoa
 
 class JsonWriter {
     public func customFormatJSON(data: [StringDataSet]) -> String {

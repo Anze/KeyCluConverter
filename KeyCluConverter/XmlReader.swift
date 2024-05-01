@@ -22,6 +22,7 @@ class XmlReader {
     public func readData(from file: String) -> [String: ShortcutGroup] {
         var result: [String: ShortcutGroup] = [:]
         let content = getArrayListFrom(file, "shortcuts")
+        
         if content.count > 0 {
             var groupName: String = ""
             
@@ -47,7 +48,7 @@ class XmlReader {
                 }
             }
         }
+        
         return result
     }
-
 }
