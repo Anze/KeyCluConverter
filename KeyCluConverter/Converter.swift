@@ -8,9 +8,11 @@
 import Foundation
 
 class Converter {
-    var bundleToConvert = ""
-    var fileToRead = ""
-    var fileToWrite = ""
+    private var bundleToConvert: String?
+    private var fileToRead: String?
+    private var fileToWrite: String?
+    
+    private let fileManager = FileManager.default
     
     public func processCommandLineArguments() -> Bool {
         if CommandLine.arguments.contains("--bundle-id") {
@@ -19,8 +21,13 @@ class Converter {
                     bundleToConvert = CommandLine.arguments[valueIndex + 1]
                 }
             }
-            print("converting: \(bundleToConvert)")
-            if bundleToConvert.isNotEmpty {
+            
+            guard let bundle = bundleToConvert else {
+                printHelp()
+                return false
+            }
+            
+            if bundle.isNotEmpty {
                 if let valueIndex = CommandLine.arguments.firstIndex(of: "--from-file") {
                     if valueIndex + 1 < CommandLine.arguments.count {
                         fileToRead = CommandLine.arguments[valueIndex + 1]
@@ -33,17 +40,14 @@ class Converter {
                     }
                 }
                 
-                print("fileToRead: \(fileToRead)")
-                print("fileToWrite: \(fileToWrite)")
-            } else {
-                printHelp()
-                return false
+                if let _ = fileToRead, let _ = fileToWrite {
+                    convert()
+                    return true
+                }
             }
-        } else {
-            printHelp()
-            return false
         }
-        return true
+        printHelp()
+        return false
     }
     
     private func printHelp() -> Void {
@@ -53,5 +57,22 @@ class Converter {
         print("2. --bundle-id <bundle-id-to-use>")
         print("   --from-file <path-file-from>")
         print("   --to-file <path-file-to>")
+    }
+    
+    private func isFilePresent(atPath path: String) -> Bool {
+        return fileManager.fileExists(atPath: path)
+    }
+    
+    private func convert() -> Void {
+        guard let bundle = bundleToConvert, let fileFrom = fileToRead, let fileTo = fileToWrite else {
+            printHelp()
+            return
+        }
+        print("converting: \(bundle)")
+        
+        print("reading: \(fileFrom)")
+        
+        print("writing: \(fileTo)")
+        
     }
 }
