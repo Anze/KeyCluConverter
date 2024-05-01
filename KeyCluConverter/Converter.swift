@@ -13,6 +13,8 @@ class Converter {
     private var fileToWrite: String?
     
     private let fileManager = FileManager.default
+    private let fileReader = XmlReader()
+    private let fileWriter = JsonWriter()
     
     public func processCommandLineArguments() -> Bool {
         if CommandLine.arguments.contains("--bundle-id") {
@@ -71,47 +73,29 @@ class Converter {
         
         print("Converting: \(bundle)")
         
-        var groups: [String: ShortcutGroup] = [:]
+        if !isFilePresent(atPath: fileFrom) {
+            fatalError("File not found")
+        }
         
         print("Reading: \(fileFrom)")
         
-        if isFilePresent(atPath: fileFrom) {
-            let url = URL(fileURLWithPath: fileFrom)
-            let filenameFull = url.lastPathComponent
-            
-            print("File \(filenameFull) found")
-            
-            let content = XmlReader.getArrayListFrom(fileFrom, "shortcuts")
-            if content.count > 0 {
-                var groupName: String = ""
-                
-                print("Processing \(content.count) elements")
-                for item in content {
-                    guard let dictValues = item as? [String: Any] else { continue }
-                    if let _ = dictValues["heading"] as? UInt,
-                       let title = dictValues["title"] as? String {
-                        print("Adding group: \(title)")
-                        groupName = title
-                        groups[groupName] = ShortcutGroup(title: groupName, items: [])
-                    } else if groupName.isNotEmpty {
-                        if let keycode = dictValues["keycode"] as? Int,
-                           let modifiers = dictValues["modifiers"] as? Int,
-                           let title = dictValues["title"] as? String
-                        {
-                            let shortcutItem = ShortcutItem(title: title, keycode: keycode, modifiers: modifiers)
-                            print("Adding shortcut: \(shortcutItem.title) -> \(shortcutItem.modifiers) + \(shortcutItem.keycode)")
-                            groups[groupName]?.addItem(
-                                item: shortcutItem
-                            )
-                        }
-                    }
-                }
-            }
-        }
-        
-        if groups.count > 0 {
+        let data: [String: ShortcutGroup] = fileReader.readData(from: fileFrom)
+        if data.count > 0 {
             print("Writing: \(fileTo)")
             
+            let dataToExport: [StringDataSet] = [
+                (
+                    Element: bundle,
+                    Data: data
+                )
+            ]
+            let urlTo = URL(fileURLWithPath: fileTo)
+            let outString = fileWriter.customFormatJSON(data: dataToExport)
+            do {
+                try outString.write(to: urlTo, atomically: true, encoding: .utf8)
+            } catch {
+                fatalError("Error: \(error)")
+            }
         }
     }
 }

@@ -10,15 +10,15 @@ import SwiftUI
 class ShortcutItem {
     let title: String
     let keycode: Int
-    let modifiers: Int
+    var modifiers: String = ""
     
     init(title: String, keycode: Int, modifiers: Int) {
         self.title = title
         self.keycode = keycode
-        self.modifiers = modifiers
+        self.modifiers = getModifierAsString(modifiers)
     }
     
-    public func getModifierAsString() -> String {
+    private func getModifierAsString(_ modifiers: Int) -> String {
         let modifierFlags = CGEventFlags(rawValue: UInt64(modifiers))
         var items: [String] = []
         
