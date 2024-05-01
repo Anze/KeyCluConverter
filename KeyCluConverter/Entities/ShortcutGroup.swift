@@ -7,7 +7,16 @@
 
 import SwiftUI
 
-struct ShortcutGroup {
-    let title: String
+class ShortcutGroup {
+    var title: String
     var items: [ShortcutItem]
+    
+    init(title: String, items: [ShortcutItem]) {
+        self.title = title
+        self.items = items
+    }
+    
+    func addItem(item: ShortcutItem) -> Void {
+        items.append(item)
+    }
 }
