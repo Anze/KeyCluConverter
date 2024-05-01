@@ -7,5 +7,5 @@
 
 import Foundation
 
-print("Hello, World!")
-
+let converter = Converter()
+let _ = converter.processCommandLineArguments()
