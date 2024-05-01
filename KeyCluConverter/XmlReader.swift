@@ -8,23 +8,19 @@
 import Foundation
 
 class XmlReader {
-    static func getArrayListFrom(_ file: String) -> [Any] {
+    static func getArrayListFrom(_ file: String, _ key: String = "") -> [Any] {
         var result: [Any] = []
-        guard let plistData = FileManager.default.contents(atPath: file) else {
-            print("Failed to read plist data.")
-            return result
-        }
-        do {
-            let plistObject = try PropertyListSerialization.propertyList(from: plistData, options: [], format: nil)
-            
-            guard let rootArray = plistObject as? [[String: Any]] else {
-                print("Root object is not an array.")
-                return result
+        
+        let xmlObject = NSDictionary(contentsOfFile: file)
+        if key.isNotEmpty {
+            if let dict = xmlObject as? [String: Any],
+               let list = dict[key] as? [Any] {
+                result = list
             }
-            
-            result = rootArray
-        } catch {
-            print("Error parsing plist: \(error)")
+        } else {
+            if let dict = xmlObject as? [String: Any] {
+                //
+            }
         }
         
         return result

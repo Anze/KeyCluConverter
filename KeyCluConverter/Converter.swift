@@ -68,11 +68,25 @@ class Converter {
             printHelp()
             return
         }
-        print("converting: \(bundle)")
+        print("Converting: \(bundle)")
+        var filename = ""
+        var shortcuts: [ShortcutGroup] = []
         
-        print("reading: \(fileFrom)")
+        print("Reading: \(fileFrom)")
         
-        print("writing: \(fileTo)")
+        if isFilePresent(atPath: fileFrom) {
+            let url = URL(fileURLWithPath: fileFrom)
+            let filenameFull = url.lastPathComponent
+            filename = url.deletingPathExtension().lastPathComponent
+            
+            print("File \(filenameFull) found")
+            let content = XmlReader.getArrayListFrom(fileFrom, "shortcuts")
+            if content.count > 0 {
+                print("Processing: \(content.count) elements")
+            }
+        }
+        
+        print("Writing: \(filename) shortcuts to \(fileTo)")
         
     }
 }

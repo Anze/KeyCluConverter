@@ -14,6 +14,8 @@
 		C730790D2BE2872500C6C6AD /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C730790C2BE2872500C6C6AD /* Converter.swift */; };
 		C73079102BE287B500C6C6AD /* BundleExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C730790F2BE287B500C6C6AD /* BundleExt.swift */; };
 		C73079132BE28AD800C6C6AD /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73079122BE28AD800C6C6AD /* StringExt.swift */; };
+		C73079162BE2929200C6C6AD /* ShortcutGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73079152BE2929200C6C6AD /* ShortcutGroup.swift */; };
+		C73079182BE292A000C6C6AD /* ShortcutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73079172BE292A000C6C6AD /* ShortcutItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,6 +40,8 @@
 		C730790F2BE287B500C6C6AD /* BundleExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExt.swift; sourceTree = "<group>"; };
 		C73079112BE2885500C6C6AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C73079122BE28AD800C6C6AD /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
+		C73079152BE2929200C6C6AD /* ShortcutGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutGroup.swift; sourceTree = "<group>"; };
+		C73079172BE292A000C6C6AD /* ShortcutItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,12 +75,13 @@
 			isa = PBXGroup;
 			children = (
 				C730790E2BE287A500C6C6AD /* Extensions */,
-				C730790B2BE2864A00C6C6AD /* External */,
+				C73079142BE2927300C6C6AD /* Entities */,
 				C73078FE2BE2852100C6C6AD /* main.swift */,
 				C730790C2BE2872500C6C6AD /* Converter.swift */,
 				C73079052BE285D600C6C6AD /* XmlReader.swift */,
 				C73079072BE2861800C6C6AD /* JsonWriter.swift */,
 				C73079112BE2885500C6C6AD /* Info.plist */,
+				C730790B2BE2864A00C6C6AD /* External */,
 			);
 			path = KeyCluConverter;
 			sourceTree = "<group>";
@@ -96,6 +101,15 @@
 				C73079122BE28AD800C6C6AD /* StringExt.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C73079142BE2927300C6C6AD /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				C73079152BE2929200C6C6AD /* ShortcutGroup.swift */,
+				C73079172BE292A000C6C6AD /* ShortcutItem.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,12 +171,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C73079082BE2861800C6C6AD /* JsonWriter.swift in Sources */,
+				C73079182BE292A000C6C6AD /* ShortcutItem.swift in Sources */,
 				C73078FF2BE2852100C6C6AD /* main.swift in Sources */,
 				C73079062BE285D600C6C6AD /* XmlReader.swift in Sources */,
 				C73079132BE28AD800C6C6AD /* StringExt.swift in Sources */,
 				C73079102BE287B500C6C6AD /* BundleExt.swift in Sources */,
 				C730790A2BE2863D00C6C6AD /* JSON.swift in Sources */,
 				C730790D2BE2872500C6C6AD /* Converter.swift in Sources */,
+				C73079162BE2929200C6C6AD /* ShortcutGroup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
