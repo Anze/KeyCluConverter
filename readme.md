@@ -13,14 +13,6 @@ These `.keyclu` files can be shared with others through [KeyCluExtensions](https
 If you have any questions or suggestions please open an issue at [KeyClu](https://github.com/Anze/KeyCluCask/issues).
 
 # Usage
-
-
-
-# Support
-
-If you have any questions or suggestions please open an issue at [KeyClu](https://github.com/Anze/KeyCluCask/issues).
-
-# Usage
 To convert existing `.kcustom` file, you would need a `bundleId` of the app. Check [FAQ](#FAQ) section for more info.
 
 ## Help
