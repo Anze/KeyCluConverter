@@ -1,0 +1,10 @@
+# Xcode
+
+## build data
+DerivedData/
+
+## user settings
+xcuserdata/
+
+## macos
+.DS_Store
