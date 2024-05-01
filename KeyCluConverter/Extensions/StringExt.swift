@@ -15,14 +15,4 @@ extension String {
     func replace(_ search: String, _ replace: String = "") -> String {
         self.replacingOccurrences(of: search, with: replace)
     }
-    
-    func trim(_ set: CharacterSet = .whitespacesAndNewlines) -> String {
-        self.trimmingCharacters(in: set)
-    }
-}
-
-extension Substring {
-    func trim(_ set: CharacterSet = .whitespacesAndNewlines) -> String {
-        self.trimmingCharacters(in: set)
-    }
 }
