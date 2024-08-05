@@ -32,7 +32,7 @@ Where:
 
 ## FAQ
 There are few ways how to get `bundleId`
-- You can obtain the `bundleId` by exporting a file for that app with at least one dummy shortcut set up within the KeyClu. It's important to note that the app should already be installed and used KeyClu altelast once within that app.
+- You can obtain the `bundleId` by exporting a file for that app with at least one dummy shortcut set up within the KeyClu. It's important to note that the app should already be installed and used KeyClu at least once within that app.
 - You can find the `bundleId` by inspecting the `Info.plist` file located within the app's `Content` folder. Look for the value corresponding to the line `CFBundleIdentifier`.
 
 # License
